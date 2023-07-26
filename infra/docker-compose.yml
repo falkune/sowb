@@ -1,0 +1,71 @@
+version: '3.9'
+
+networks:
+  public:
+    external:
+      name: workflow_public
+
+  private:
+    external:
+      name: workflow_private
+
+services:
+  www:
+    build: .
+    container_name: sowb
+    labels:
+      - traefik.http.routers.web.rule=Host(`sowb.com`)
+    ports:
+      - 8082:80
+    volumes:
+      - ../www:/var/www/html/
+    links:
+      - db
+    networks:
+      public:
+        ipv4_address: 192.168.2.7
+      private:
+        ipv4_address: 192.168.3.7
+
+  db:
+    image: mysql:latest
+    container_name: swob_db
+    labels:
+      - traefik.http.routers.db.rule=Host(`db.sowb.com`)
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: swob_db
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+      MYSQL_ROOT_PASSWORD: admin
+    volumes:
+      - db:/var/lib/mysql
+    networks:
+      public:
+        ipv4_address: 192.168.2.8
+      private:
+        ipv4_address: 192.168.3.8
+
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin-sowb
+    labels:
+      - traefik.http.routers.phpmyadmin.rule=Host(`phpmyadmin-sowb.com`)
+    links: 
+      - db:db
+    ports:
+      - 8000:80
+    environment:
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+      MYSQL_ROOT_PASSWORD: admin
+    networks:
+      public:
+        ipv4_address: 192.168.2.9
+      private:
+        ipv4_address: 192.168.3.9
+
+volumes:
+  db:
