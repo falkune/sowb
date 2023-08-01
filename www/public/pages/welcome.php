@@ -25,15 +25,10 @@
 
      <div class="sep"></div>
      <div class="sep"></div>
-     <!-- <div class="sep"></div> -->
 
     <?php include_once BANNER ?>
 
-
     <div class="sep"></div>
-    <div class="sep"></div>
-    <div class="sep"></div>
-    
     
 
     <!-- info -->

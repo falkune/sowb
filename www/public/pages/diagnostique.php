@@ -1,7 +1,12 @@
+<?php 
+session_start(); 
+require(MODEL . DIRECTORY_SEPARATOR . 'DbConnect.php');
+$connexion = DbConnect::getDbInstance(DBINFO);
+?>
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
@@ -16,9 +21,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.3.0/css/all.css">
     <link rel="stylesheet" href="<?= STYLE ?>">
     <script src="<?= RV ?>" defer></script>
-    <title>Document</title>
+    <title>Diagnotique</title>
 </head>
-
 <body>
     <?php include_once NAVBAR ?>
 
@@ -27,26 +31,28 @@
     <div class="sep"></div>
     <div class="sep"></div>
 
-    <div class="container">
-        <div class="sep"></div>
-        <div class="car">
-            <p class="cata">Catalogue</p>
-            <div class="carousel-container">
-                <div class="carousel-slide">
-                    <a href="<?= URLS['diagnostique']  ?>?id=phone"><img id="tel" src="<?= IMGS ?>/tel.png" alt="téléphone"></a>
-                    <a href="<?= URLS['diagnostique']  ?>?id=tablette"><img id="tab" src="<?= IMGS ?>/tab.png" alt="tablette"></a>
-                    <a href="<?= URLS['diagnostique']  ?>?id=computer"><img id="ordi" src="<?= IMGS ?>/ordi.png" alt="ordinateur"></a>
-                    <a href="<?= URLS['diagnostique']  ?>?id=network"><img id="réseau" src="<?= IMGS ?>/net.png" alt="network"></a>
-                </div>
-                <div class="carousel-arrow carousel-prev">&lt;</div>
-                <div class="carousel-arrow carousel-next">&gt;</div>
-            </div>
-        </div>
-    </div>
-
+    <?php if($_GET['id'] == "phone"){ 
+        include_once CALL;
+    } ?>
 
     <div class="sep"></div>
+    <div class="sep"></div>
+        
+    <?php if(isset($_SESSION['piece'])){
+        include_once MARQUE;
+    }?>
 
-    <?php include_once FOOTER ?>
+    <div class="sep"></div>
+    <div class="sep"></div>
+
+    <?php if(isset($_SESSION['marque'])){
+        include_once MODELE;
+    }?>
+    <div class="sep"></div>
+    <div class="sep"></div>
+    <?php if(isset($_SESSION['model'])){
+        include_once TYPE;
+    }?>
+
 </body>
 </html>

@@ -1,10 +1,5 @@
 <?php
 class DbConnect{
-    /**
-     * cette classe defini un attribut privé et static _dbInstance qui correspond a l'objet de connexion à la base de données
-     * et une methode permetant creer une instance de connexion a la base de données si cette instance n'existe pas déjà
-     * si cette instance existe elle la retourne
-     */
     private static $_dbInstance = null;
     
     public static function getDbInstance($dbInfo){

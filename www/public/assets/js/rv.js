@@ -9,26 +9,16 @@ $(document).ready(() => {
         }
 
         function nextSlide() {
-            // slideIndex = (slideIndex + 1) % slides.length;
-            slideIndex++;
-            if (slideIndex >= slides.length) {
-                slideIndex = 0;
-            }
+            slideIndex = (slideIndex + 1) % slides.length;
             showSlide(slideIndex);
         }
 
         function prevSlide() {
-            // slideIndex = (slideIndex - 1 + slides.length) % slides.length;
-            slideIndex--;
-            if (slideIndex <= 0) {
-                slideIndex = slides.length - 1;
-            }
+            slideIndex = (slideIndex - 1 + slides.length) % slides.length;
             showSlide(slideIndex);
         }
 
-        // Afficher la première image au chargement
         showSlide(slideIndex);
-        // Changer de diapositive lorsque les flèches sont cliquées
         carousel.find(".carousel-prev").click(function () {
             prevSlide();
         });
@@ -39,10 +29,10 @@ $(document).ready(() => {
     });
 
     $("#tel").click(() => {
-        $(".car").css({
-            display: "none"
-        });
-        $(".diagnostic").removeClass("hide");
+        // $(".car").css({
+        //     display: "none"
+        // });
+        // $(".diagnostic").removeClass("hide");
     });
 
     $("#tab").click(() => {
@@ -52,4 +42,5 @@ $(document).ready(() => {
     $("#ordi").click(() => {
 
     });
+
 });

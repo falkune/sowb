@@ -1,5 +1,11 @@
+<?php
+session_start();
+require(MODEL . DIRECTORY_SEPARATOR . 'DbConnect.php');
+$connexion = DbConnect::getDbInstance(DBINFO);
+?>
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,8 +21,8 @@
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.3.0/css/all.css">
     <link rel="stylesheet" href="<?= STYLE ?>">
-    <script src="<?= RV ?>" defer></script>
-    <title>Document</title>
+    <script src="<?= PHONE ?>" defer></script>
+    <title>Diagnotique</title>
 </head>
 
 <body>
@@ -27,26 +33,30 @@
     <div class="sep"></div>
     <div class="sep"></div>
 
-    <div class="container">
-        <div class="sep"></div>
-        <div class="car">
-            <p class="cata">Catalogue</p>
-            <div class="carousel-container">
-                <div class="carousel-slide">
-                    <a href="<?= URLS['diagnostique']  ?>?id=phone"><img id="tel" src="<?= IMGS ?>/tel.png" alt="téléphone"></a>
-                    <a href="<?= URLS['diagnostique']  ?>?id=tablette"><img id="tab" src="<?= IMGS ?>/tab.png" alt="tablette"></a>
-                    <a href="<?= URLS['diagnostique']  ?>?id=computer"><img id="ordi" src="<?= IMGS ?>/ordi.png" alt="ordinateur"></a>
-                    <a href="<?= URLS['diagnostique']  ?>?id=network"><img id="réseau" src="<?= IMGS ?>/net.png" alt="network"></a>
-                </div>
-                <div class="carousel-arrow carousel-prev">&lt;</div>
-                <div class="carousel-arrow carousel-next">&gt;</div>
+    <div>
+        <p class="nostic">Diagnostic Assurance Rendez-vous Coordonnées Confirmation</p>
+        <div class="diagnostic">
+            <div class="left">
+                <img src="<?= IMGS ?>/latel.png" alt="">
+            </div>
+
+            <div class="right">
+                <ul class="composant">
+                    
+                </ul>
             </div>
         </div>
     </div>
-
-
+    <div class="sep"></div>
+    <div class="sep"></div>
+    <div class="sep"></div>
     <div class="sep"></div>
 
-    <?php include_once FOOTER ?>
+     <!-- emplacement prevu pour afficher les marque -->
+    <div id="marque">
+        
+    </div>
+
 </body>
+
 </html>

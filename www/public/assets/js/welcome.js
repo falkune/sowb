@@ -14,5 +14,6 @@ $(document).ready(() => {
         $(".banner").css("background-image", "url(" + imgs[curentIndex] + ")");
         curentIndex = (curentIndex + 1) % imgs.length;
     }
+    
 
 });

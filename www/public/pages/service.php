@@ -33,10 +33,14 @@
             <p class="cata">Catalogue</p>
             <div class="carousel-container">
                 <div class="carousel-slide">
-                    <a href="<?= URLS['diagnostique']  ?>?id=phone"><img id="tel" src="<?= IMGS ?>/tel.png" alt="téléphone"></a>
-                    <a href="<?= URLS['diagnostique']  ?>?id=tablette"><img id="tab" src="<?= IMGS ?>/tab.png" alt="tablette"></a>
-                    <a href="<?= URLS['diagnostique']  ?>?id=computer"><img id="ordi" src="<?= IMGS ?>/ordi.png" alt="ordinateur"></a>
-                    <a href="<?= URLS['diagnostique']  ?>?id=network"><img id="réseau" src="<?= IMGS ?>/net.png" alt="network"></a>
+                   
+                    <a href="<?= URLS['phone']  ?>"><img id="tel" src="<?= IMGS ?>/tel.png" alt="téléphone"></a>
+           
+                    <a href="<?= URLS['tablet']  ?>"><img id="tab" src="<?= IMGS ?>/tab.png" alt="tablette"></a>
+   
+                    <a href="<?= URLS['computer']  ?>"><img id="ordi" src="<?= IMGS ?>/ordi.png" alt="ordinateur"></a>
+       
+                    <a href="<?= URLS['network']  ?>"><img id="réseau" src="<?= IMGS ?>/net.png" alt="network"></a>
                 </div>
                 <div class="carousel-arrow carousel-prev">&lt;</div>
                 <div class="carousel-arrow carousel-next">&gt;</div>

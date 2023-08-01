@@ -12,20 +12,21 @@ class ApiController extends Controller{
 
     $this->_service = isset($params[1]) && ($params[1] == "marque" || $params[1] == "modele" || $params[1] == "type") ? $params[1] : 'Api404';
 
+    echo $this->_service;
     require_once(MODEL.DIRECTORY_SEPARATOR.ucfirst($this->_service).'.php');
 
     switch($this->_service){
-      case "user":
-        User::userActions($action = isset($params[2]) ? $params[2] : 'list');
+      case "marque":
+        echo Marque::getData($params);
         break;
-      case "client":
-        Client::clientActions($action = isset($params[2]) ? $params[2] : 'list');
+      case "modele":
+        echo Modele::getData($params);
         break;
-      case "mission":
-        Mission::missionActions($action = isset($params[2]) ? $params[2] : 'list');
+      case "type":
+        echo Type::getData($params);
         break;
       default:
-        Api404::notFound404();
+        echo Api404::getData($params);
     }
   }
 }

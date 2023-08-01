@@ -1,13 +1,13 @@
 <nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container-fluid">
-        <div class="logo">
+    <div class="container-fluid row">
+        <div class="logo col-4">
             <a class="navbar-brand" href="<?= URLS['home'] ?>">LOGO</a>
         </div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        <button class="navbar-toggler col-4" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse col-4 d-flex flex-lg-row-reverse" id="navbarSupportedContent">
             <div class="d-flex">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
@@ -23,7 +23,7 @@
                         <a class="nav-link" href="#">Rejoignez-nous</a>
                     </li>
                 </ul>
-                <button class="rv"><a class="nav-link" href="<?= URLS['rendez-vous'] ?>">Prendre Rendez-vous</a></button>
+                <button class="rv"><a class="nav-link" href="<?= URLS['service'] ?>">Prendre Rendez-vous</a></button>
             </div>
         </div>
     </div>
