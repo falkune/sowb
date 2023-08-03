@@ -125,16 +125,11 @@ $marques = $request->fetchAll();
         </ul>
     </div>
 
-    <div class="sep"></div>
-    <div class="sep"></div>
-    <div class="sep"></div>
-    <div class="sep"></div>
-
     <!-- ici afficher les types -->
     <div id="type" class="marque">
         <p>De quelle type sagit-il?</p>
         <ul id="types">
-
+            
         </ul>
     </div>
 

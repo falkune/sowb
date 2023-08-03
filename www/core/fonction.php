@@ -18,7 +18,7 @@ function getModele($idMarque){
 }
 
 
-function getType($idType){
+function getTyppe($idType){
   $connexion = connexion();
   $request = $connexion->prepare("SELECT * FROM types WHERE modele = ?");
   $request->execute(array($idType));

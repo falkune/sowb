@@ -11,7 +11,7 @@ switch ($service) {
     echo getModele($url[1]);
     break;
   case "getType":
-    echo getType($url[1]);
+    echo getTyppe($url[1]);
     break;
   default:
     echo $error = json_encode([

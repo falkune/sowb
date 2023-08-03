@@ -32,7 +32,8 @@ $(document).ready(() => {
                             'value': element.id_modele,
                             'text': element.nom_modele
                         });
-                        nouveauBouton.appendTo('#modeles');
+                        $('#modeles').append(nouveauBouton);
+                        // nouveauBouton.appendTo('#modeles');
                     });
                 },
                 error: function (xhr, status, error) {
@@ -46,6 +47,7 @@ $(document).ready(() => {
     $("#modeles button").each(function () {
         $(this).on("click", function () {
             localStorage.setItem('type', $(this).val());
+            console.log($(this).val());
             $.ajax({
                 method: 'get',
                 url: 'http://sowb.com/getType/'+$(this).val(),
