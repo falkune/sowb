@@ -1,2 +1,2 @@
 ###
-GET http://sowb.com/api/marque/
+GET http://sowb.com/getModele/4

@@ -12,7 +12,7 @@ if(isset($_POST['model'])){
     <p>Quelle est le Modele?</p>
     <form method="post">
         <?php foreach($models as $model){ ?>
-            <button class="liste model" name="model" value="<?= $model['id_modele'] ?>"><?= $model['nom_modele'] ?></button>
+            <button class="liste model" name="model" value="xxx">djkld</button>
         <?php }?>
     </form>
 </div>
