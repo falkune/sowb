@@ -1,7 +1,7 @@
 $(document).ready(() => {
-    if(localStorage.getItem('service') === "phone"){
+    if (localStorage.getItem('service') === "phone") {
         $("#tel").removeClass("hide");
-    }else{
+    } else {
         $("#tel").addClass("hide");
     }
 
@@ -20,9 +20,9 @@ $(document).ready(() => {
             console.log($(this).val())
             $.ajax({
                 method: 'get',
-                url: 'http://sowb.com/getModele/'+$(this).val(),
+                url: 'http://sowb.com/getModele/' + $(this).val(),
                 // contentType: "application/json",
-                dataType : 'json',
+                dataType: 'json',
                 success: function (data) {
                     $("#modeles").empty();
                     data.modeles.forEach(element => {
@@ -50,8 +50,8 @@ $(document).ready(() => {
             console.log($(this).val());
             $.ajax({
                 method: 'get',
-                url: 'http://sowb.com/getType/'+$(this).val(),
-                dataType : 'json',
+                url: 'http://sowb.com/getType/' + $(this).val(),
+                dataType: 'json',
                 success: function (data) {
                     $("#types").empty();
                     data.modeles.forEach(element => {
