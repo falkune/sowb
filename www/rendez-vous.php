@@ -119,7 +119,7 @@ $marques = $request->fetchAll();
 
     <!-- ici afficher les modeles -->
     <div id="modele" class="marque">
-        <p>De quelle modele sagit-il?</p>
+        <p id="modele_p" class="hide">De quelle modele sagit-il?</p>
         <ul id="modeles">
 
         </ul>
@@ -127,7 +127,7 @@ $marques = $request->fetchAll();
 
     <!-- ici afficher les types -->
     <div id="type" class="marque">
-        <p>De quelle type sagit-il?</p>
+        <p id="type_p" class="hide">De quelle type sagit-il?</p>
         <ul id="types">
             
         </ul>

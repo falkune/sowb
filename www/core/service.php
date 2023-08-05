@@ -10,7 +10,7 @@ switch ($service) {
   case "getModele":
     echo getModele($url[1]);
     break;
-  case "getType":
+  case "getTyppe":
     echo getTyppe($url[1]);
     break;
   default:

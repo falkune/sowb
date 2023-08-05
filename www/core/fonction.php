@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 // inclusion des different fichiers 
 require_once('connexion.php');
 
@@ -23,7 +22,7 @@ function getTyppe($idType){
   $request = $connexion->prepare("SELECT * FROM types WHERE modele = ?");
   $request->execute(array($idType));
   $types = $request->fetchAll();
-  return json_encode([
+  return $error = json_encode([
     'status'  => 200,
     'message' => "success..",
     'modeles' => $types
