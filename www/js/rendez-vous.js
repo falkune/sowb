@@ -1,5 +1,4 @@
 $(document).ready(() => {
-
     if (localStorage.getItem('service') === "phone") {
         $("#tel").removeClass("hide");
     } else {
