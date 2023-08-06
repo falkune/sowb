@@ -82,8 +82,8 @@
                 <div class="sep"></div>
                 <div class="sep"></div>
                 <div class="sep"></div>
-                <!-- <div class="sep"></div> -->
-                <button class="btn my-btn text-cente"><a class="nav-link"
+                <div class="sep"></div>
+                <button class="bouton my-btn text-center"><a class="nav-link"
                         href="http://sowb.com/partenaires.php">Découvrir >></a></button>
             </div>
             <!-- <div class="col-md-1"></div> -->
@@ -91,8 +91,8 @@
                 <p class="text-center">sowb recrute partout en ile de France</p>
                 <div class="sep"></div>
                 <div class="sep"></div>
-                <!-- <div class="sep"></div> -->
-                <button class="btn  my-btn text-cente"><a class="nav-link"
+                <div class="sep"></div>
+                <button class="bouton  my-btn text-center"><a class="nav-link"
                         href="http://sowb.com/rejoindre.php">Découvrir >></a></button>
             </div>
         </div>
