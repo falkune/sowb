@@ -3,8 +3,9 @@
         <div class="logo col-4">
             <a class="navbar-brand" href="http://sowb.com"><img src="img/logo.png" alt="le logo"></a>
         </div>
-        <button class="navbar-toggler col-4" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler col-4" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse col-4 d-flex flex-lg-row-reverse" id="navbarSupportedContent">
@@ -20,10 +21,11 @@
                         <a class="nav-link" href="#">Contactez-nous</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Rejoignez-nous</a>
+                        <a class="nav-link" href="http://sowb.com/rejoindre.php">Rejoignez-nous</a>
                     </li>
                 </ul>
-                <button class="rv"><a class="nav-link" href="http://sowb.com/service.php">Prendre Rendez-vous</a></button>
+                <button class="rv"><a class="nav-link" href="http://sowb.com/service.php">Prendre
+                        Rendez-vous</a></button>
             </div>
         </div>
     </div>

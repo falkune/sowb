@@ -1,5 +1,5 @@
 <footer>
-    <div class="container">
+    <div class="container foot">
         <div class="row">
             <div class="col-md-2">
                 <div class="logo">
@@ -8,7 +8,7 @@
                 <p>Sowb ®</p>
             </div>
             <div class="col-md-10">
-                <p>
+                <p class="text-center">
                     Quels que soient la marque ou le modèle de votre Apparaille, si votre apparaille a subi une cassé,
                     une panne ou si
                     votre entreprise a un problème Reseaux : Faites appel à Sowb , spécialiste de la réparation de
@@ -17,7 +17,8 @@
                 </p>
             </div>
         </div>
-
+        <div class="sep"></div>
+        <div class="sep"></div>
         <div class="row">
             <div class="col-md-3 col-sm-12">
                 <p>Nos services</p>
@@ -36,20 +37,20 @@
 
             <div class="avis_verif col-md-3 col-sm-12">
                 <p>Les Avis Clients</p>
-                <img src="<?= IMGS . '/avis_verif.png' ?>" alt="">
+                <img src="img/avis_verif.png" alt="avis">
             </div>
         </div>
     </div>
-
+    
     <div class="bas-footer">
         <div class="row container m-auto">
             <div class="col-md-4">
                 <p>
                     Suivez-nous
-                    <span><i class="fa-brands fa-instagram"></i></span>
-                    <span><i class="fa-brands fa-twitter"></i></span>
-                    <span><i class="fa-brands fa-youtube"></i></span>
-                    <span><i class="fa-brands fa-linkedin"></i></span>
+                    <span class="social-media"><i class="fa-brands fa-instagram"></i></span>
+                    <span class="social-media"><i class="fa-brands fa-twitter"></i></span>
+                    <span class="social-media"><i class="fa-brands fa-youtube"></i></span>
+                    <span class="social-media"><i class="fa-brands fa-linkedin"></i></span>
                 </p>
             </div>
 
@@ -57,16 +58,16 @@
                 <div class="d-flex">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-row">
                         <li class="foot-link nav-item">
-                            <a class="nav-link" href="#">Nos Services</a>
+                            <a class="nav-link" href="#">Charte vie privé</a>
                         </li>
                         <li class="foot-link nav-item">
-                            <a class="nav-link" href="#">Devis</a>
+                            <a class="nav-link" href="#">Conditions d'utilisations</a>
                         </li>
                         <li class="foot-link nav-item">
-                            <a class="nav-link" href="#">Contactez-nous</a>
+                            <a class="nav-link" href="#">Mention légales</a>
                         </li>
                         <li class="foot-link nav-item">
-                            <a class="nav-link" href="#">Rejoignez-nous</a>
+                            <a class="nav-link" href="#">Cookies</a>
                         </li>
                     </ul>
                 </div>

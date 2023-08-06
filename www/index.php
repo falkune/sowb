@@ -22,13 +22,13 @@
 <body>
     <?php include_once 'nav.php' ?>
 
-     <div class="sep"></div>
-     <div class="sep"></div>
+    <div class="sep"></div>
+    <div class="sep"></div>
 
     <?php include_once "baniere.php" ?>
 
     <div class="sep"></div>
-    
+    <div class="sep"></div>
 
     <!-- info -->
     <div class="container row m-auto w-50">
@@ -63,26 +63,37 @@
             </div>
         </div>
     </div>
-    <!-- une separation -->
+
     <div class="sep"></div>
-    <!-- promo partenariat recrutement -->
+    <div class="sep"></div>
+
     <div class="container">
         <div class="row">
             <div class="promo col-md-6 col-sm-12">
                 <p>Pour Tout Intervention - Du 06 juillet au 26 juillet 2023</p>
-                <button><a class="nav-link" href="#">En Savoir Plus</a></button>
+                <div class="sep"></div>
+                <div class="sep"></div>
+                <div class="sep"></div>
+                <button class="bouton"><a class="nav-link" href="http://sowb.com/promo.php">En Savoir Plus</a></button>
             </div>
             <!-- <div class="col-md-1"></div> -->
             <div class="partenariat col-md-2 col-sm-12 offset-md-1">
-                <p>Nos partenariats</p>
-
-                <button>Découvrir</button>
+                <p class="text-center">Nos partenariats</p>
+                <div class="sep"></div>
+                <div class="sep"></div>
+                <div class="sep"></div>
+                <!-- <div class="sep"></div> -->
+                <button class="btn my-btn text-cente"><a class="nav-link"
+                        href="http://sowb.com/partenaires.php">Découvrir >></a></button>
             </div>
             <!-- <div class="col-md-1"></div> -->
             <div class="recrutement col-md-2 col-sm-12 offset-md-1">
-                <p>sowb recrute partout en ile de France</p>
-
-                <button>Découvrir</button>
+                <p class="text-center">sowb recrute partout en ile de France</p>
+                <div class="sep"></div>
+                <div class="sep"></div>
+                <!-- <div class="sep"></div> -->
+                <button class="btn  my-btn text-cente"><a class="nav-link"
+                        href="http://sowb.com/rejoindre.php">Découvrir >></a></button>
             </div>
         </div>
         <!-- une separation -->
@@ -99,9 +110,10 @@
                 </div>
                 <div class="chez-sowb col-md-4 offset-md-1">
                     <p>Chez Sowb, vous n'avancez pas les frais quelle que soit l'intervention</p>
-
-                    <p>On vous accompagne dans vos formalités avec votre assureur</p>
-                    <button>En savoir plus</button>
+                    <div class="sep"></div>
+                    <div class="sep"></div>
+                    <p class="form-control-sm">On vous accompagne dans vos formalités avec votre assureur</p>
+                    <button class="bouton">En savoir plus</button>
                 </div>
             </div>
         </div>
@@ -117,9 +129,12 @@
                 </div>
                 <div class="chez-sowb col-md-3 offset-md-1">
                     <p>Voir tous les avis</p>
-
+                    <div class="sep"></div>
+                    <div class="sep"></div>
+                    <div class="sep"></div>
+                    <div class="sep"></div>
                     <p>Soumis à un contrôle ?</p>
-                    <button>Découvrir</button>
+                    <button class="bouton my-btn text-cente"><a class="nav-link" href="">Découvrir >></a></button>
                 </div>
             </div>
         </div>
