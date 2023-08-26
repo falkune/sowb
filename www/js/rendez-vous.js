@@ -1,21 +1,30 @@
 $(document).ready(() => {
+    let etape = localStorage.getItem('actif') ? localStorage.getItem('actif') : "diagnostic";
+    localStorage.setItem('actif', etape);
     // click sur les composant
     $(".composant button").each(function () {
         $(this).on("click", function () {
             localStorage.setItem('composant', $(this).val());
             $("#marque").removeClass("hide");
+            window.location.href = '#marque';
         });
     });
+
+    if(localStorage.getItem('composant')){
+        $("#marque").removeClass("hide");
+    }
 
     // click sur les marques
     $("#marques button").each(function () {
         $(this).on("click", function () {
             localStorage.setItem('marque', $(this).val());
             $("#modele").removeClass("hide");
+            $(".selected-marque").removeClass("selected-marque");
+            $(this).toggleClass("selected-marque");
+            window.location.href = '#modele';
             $.ajax({
                 method: 'get',
                 url: 'http://sowb.com/getModele/' + $(this).val(),
-                // contentType: "application/json",
                 dataType: 'json',
                 success: function (data) {
                     $("#modeles").empty();
@@ -36,10 +45,17 @@ $(document).ready(() => {
         });
     });
 
+    if(localStorage.getItem('marque')){
+        $("#modele").removeClass("hide");
+    }
+
     // click sur les modeles
     $("#modeles").on("click", "button", function () {
         localStorage.setItem('modele', $(this).val());
         $("#type").removeClass("hide");
+        $(".selected-model").removeClass("selected-model");
+        $(this).toggleClass("selected-model");
+        window.location.href = '#type';
         var modeleId = $(this).val();
         $.ajax({
             method: 'get',
@@ -66,31 +82,45 @@ $(document).ready(() => {
     // click sur les types
     $("#types").on("click", "button", function () {
         localStorage.setItem('type', $(this).val());
+        $(".selected-type").removeClass("selected-type");
+        $(this).toggleClass("selected-type");
+        window.location.href = '#assurance';
     });
 
-    // si etape diagnostique fini
+    // si etape diagnostique terminé etape suivante assurance
     $("#suite_diag").click(() => {
-        localStorage.setItem("diagnostic", "end");
-        // localStorage.setItem("endDiagnostic", true);
-        endDiagnostic = true;
+        localStorage.setItem("actif", "assurance");
+
         $("#phone_diagnostic").addClass("hide");
         $("#assurance").removeClass("hide");
-        // $("#diag").prop("checked", true);
+        window.location.href = '#assurance';
     });
 
-
-    // si etatpe assurance terminé
+    // si etatpe assurance terminé etape suivante creneau
     $("#suite_assu").click(() => {
-        localStorage.setItem("assurance", "end");
+        localStorage.setItem("actif", "creneau");
         localStorage.setItem("assurance", $("#assu").val());
-        localStorage.setItem("code_assurance", $("#code_assu").val());
-        // localStorage.setItem("endAssu", true);
-        endAssu = true;
+
         $("#assurance").addClass("hide");
         $("#rdv").removeClass("hide");
-        // $("#assur").prop("checked", true);
+        window.location.href = '#rdv';
     });
 
+    // si etape creneau terminé etape suivante coordonnée
+    $("#suite_rv").click(() => {
+        localStorage.setItem("actif", "coordonnee");
+        $("#rdv").addClass("hide");
+        $("#crdn").removeClass("hide");
+        window.location.href = '#crdn';
+    })
+
+    // si etape coordonnée terminé etape suivante confirmation
+    $("#suite_crdn").click(() => {
+        localStorage.setItem("actif", "confirmation");
+        $("#crdn").addClass("hide");
+        $("#confirm").removeClass("hide");
+        window.location.href = '#confirm';
+    })
 
     // Pour le calendrier
     document.addEventListener('DOMContentLoaded', function () {
@@ -150,7 +180,6 @@ $(document).ready(() => {
 
     // Fonction pour sélectionner une date
     function selectDate(year, month, day) {
-        console.log(year, month, day);
         const selectedCells = document.querySelectorAll('.selected');
         for (const selectedCell of selectedCells) {
             selectedCell.classList.remove('selected');
@@ -160,14 +189,10 @@ $(document).ready(() => {
         if (selectedDateCell) {
             selectedDateCell.classList.add('selected');
 
-            const selectedDate = new Date(year, month, day);
-            const selectedDateContainer = document.getElementById('selectedDateContainer');
-            selectedDateContainer.textContent = `Date choisie : ${day}/${month + 1}/${year}`;
-
             // Récupérer le mois et l'année
             const selectedMonth = month + 1;
             const selectedYear = year;
-            console.log(`Date : ${day}/${selectedMonth}/${selectedYear}`);
+            localStorage.setItem('date', `${day}-${selectedMonth}-${selectedYear}`);
 
             // Mise à jour du mois et de l'année
             currentMonth = month;
@@ -221,4 +246,73 @@ $(document).ready(() => {
     document.getElementById('previousButton').addEventListener('click', previousMonth);
     document.getElementById('nextButton').addEventListener('click', nextMonth);
 
+    // fonction pour selectionner un creneau
+    $(".creneau button").each(function() {
+        $(this).on('click', function(){
+            $('.selectCreneau').removeClass("selectCreneau"); // je desselectionne le creneau qui etait selectionne
+            $(this).toggleClass("selectCreneau"); // je selectionne le creneau
+            localStorage.setItem("creneau", $(this).val()); // je met sa valeur dans le local storage
+        });
+    })
+
+
+    // fonction pour maintenir l'etape actuelle
+    if(localStorage.getItem('actif') == "diagnostic"){
+        $("#assurance").addClass("hide");
+        $("#rdv").addClass("hide");
+        $("#crdn").addClass("hide");
+        $("#confirm").addClass("hide");
+        $("#phone_diagnostic").removeClass("hide");
+    }else if(localStorage.getItem('actif') == "assurance"){
+        $("#phone_diagnostic").addClass("hide");
+        $("#rdv").addClass("hide");
+        $("#crdn").addClass("hide");
+        $("#confirm").addClass("hide");
+        $("#assurance").removeClass("hide");
+    }else if(localStorage.getItem('actif') == "creneau"){
+        $("#phone_diagnostic").addClass("hide");
+        $("#assurance").addClass("hide");
+        $("#crdn").addClass("hide");
+        $("#confirm").addClass("hide");
+        $("#rdv").removeClass("hide");
+    }else if(localStorage.getItem('actif') == "coordonnee"){
+        $("#phone_diagnostic").addClass("hide");
+        $("#assurance").addClass("hide");
+        $("#rdv").addClass("hide");
+        $("#confirm").addClass("hide");
+        $("#crdn").removeClass("hide");
+    }else if(localStorage.getItem('actif') == "confirmation"){
+        $("#phone_diagnostic").addClass("hide");
+        $("#assurance").addClass("hide");
+        $("#rdv").addClass("hide");
+        $("#crdn").addClass("hide");
+        $("#confirm").removeClass("hide");
+    }
+
+    $("#reprise").click(() => {
+        localStorage.clear();
+    })
+
+    $("#autre-composant").click(() => {
+        $("#composant-autre").removeClass("hide")
+    })
+
+    $("#print").click(() => {
+        imprimerSection("confirm");
+    })
+
+
+    function imprimerSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            const printWindow = window.open('', '_blank');
+            printWindow.document.open();
+            printWindow.document.write('<html><head><title>Impression</title></head><body>');
+            printWindow.document.write(section.innerHTML);
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            printWindow.print();
+        }
+    }
+    
 });

@@ -1,2 +1,0 @@
-###
-GET http://sowb.com/api/marque/

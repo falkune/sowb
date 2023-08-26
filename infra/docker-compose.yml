@@ -69,3 +69,6 @@ services:
 
 volumes:
   db:
+
+
+#  // echo strip_tags($_POST['nom']); 5390 7105

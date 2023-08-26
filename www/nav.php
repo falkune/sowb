@@ -15,17 +15,16 @@
                         <a class="nav-link" href="#">Nos Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Devis</a>
+                        <a class="nav-link" href="devis.php">Devis</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contactez-nous</a>
+                        <a class="nav-link" href="contact.php">Contactez-nous</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="http://sowb.com/rejoindre.php">Rejoignez-nous</a>
+                        <a class="nav-link" href="rejoindre.php">Rejoignez-nous</a>
                     </li>
                 </ul>
-                <button class="rv"><a class="nav-link" href="http://sowb.com/service.php">Prendre
-                        Rendez-vous</a></button>
+                <button class="rv"><a class="nav-link" href="service.php">Prendre Rendez-vous</a></button>
             </div>
         </div>
     </div>

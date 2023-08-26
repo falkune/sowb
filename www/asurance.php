@@ -1,6 +1,14 @@
 <div>
+    <div class="progressbar">
+        <div style="width: 20%; background-color: #b5e48c; border-radius: 50px;"></div>
+        <div style="width: 20%; background-color: #348f72; border-radius: 50px;"></div>
+        <div style="width: 20%;"></div>
+        <div style="width: 20%;"></div>
+        <div style="width: 20%;"></div>
+    </div>
+    <div class="sep"></div>
     <p class="etape">
-        <span class="etapes" style="background-color: #348f72; color: white;">Diagnostic</span>
+        <span class="etapes">Diagnostic</span>
         <span class="etapes">Assurance</span>
         <span class="etapes">Rendez-vous</span>
         <span class="etapes">Coordonnées</span>

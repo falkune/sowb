@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -143,6 +142,9 @@
     <div class="sep"></div>
     <!-- footer -->
     <?php include_once "footer.php" ?>
+    <script>
+        localStorage.clear();
+    </script>
 </body>
 
 </html>

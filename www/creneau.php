@@ -1,7 +1,22 @@
+<?php
+require_once('core/connexion.php');
+$connexion = connexion();
+$request = $connexion->prepare("SELECT * FROM creneaux");
+$request->execute();
+$creneaux = $request->fetchAll(PDO::FETCH_ASSOC);
+
+?>
 <div>
+    <div class="progressbar">
+        <div style="width: 20%; background-color: #b5e48c; border-radius: 50px;"></div>
+        <div style="width: 20%; background-color: #b5e48c; border-radius: 50px;"></div>
+        <div style="width: 20%; background-color: #348f72; border-radius: 50px;"></div>
+        <div style="width: 20%;"></div>
+        <div style="width: 20%;"></div>
+    </div>
     <p class="etape">
-        <span class="etapes" style="background-color: #348f72; color: white;">Diagnostic</span>
-        <span class="etapes" style="background-color: #348f72; color: white;">Assurance</span>
+        <span class="etapes">Diagnostic</span>
+        <span class="etapes">Assurance</span>
         <span class="etapes">Rendez-vous</span>
         <span class="etapes">Coordonnées</span>
         <span class="etapes">Confirmation</span>
@@ -24,49 +39,17 @@
                         </div>
 
                         <div id="calendarContainer"></div>
-
-                        <div id="selectedDateContainer"></div>
                     </div>
                     <div class="creneau">
-                        <button class="crn">8H00 - 08H45</button>
-
-                        <button class="crn">08H45 - 09H30</button>
-
-                        <button class="crn">09H30 - 10H15</button>
-
-                        <button class="crn">10H15 - 11H00</button>
-
-                        <button class="crn">11H00 - 11H45</button>
-
-                        <button class="crn">11H45 - 12H30</button>
-
-                        <button class="crn">12H30 - 13H15</button>
-
-                        <!-- <button class="crn">14H00 - 14H45</button>
-
-                        <button class="crn">14H45 - 15H30</button>
-
-                        <button class="crn">15H30 - 16H15</button>
-
-                        <button class="crn">16H15 - 17H00</button>
-
-                        <button class="crn">17H00 - 17H45</button>
-
-                        <button class="crn">17H45 - 18H00</button>
-
-                        <button class="crn">18H00 - 18H45</button>
-
-                        <button class="crn">18H45 - 19H30</button>
-
-                        <button class="crn">19H30 - 20H15</button>
-
-                        <button class="crn">20H15 - 21H00</button> -->
+                        <?php foreach($creneaux as $c) { ?>
+                            <button class="crn" value="<?= $c['creneau']; ?>"><?= $c['creneau']; ?></button>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="rv_droite">
+        <div class="rdv_droite">
             <p>Mon résumé</p>
             <div class="resume">
                 <input id="diag" type="checkbox" class="check" checked>

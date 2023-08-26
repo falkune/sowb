@@ -37,7 +37,7 @@
         <div class="sep"></div>
         <div class="d-flex justify-content-around">
             <div class="card">
-                <img src="img/calendar.png" class="card-img-top" alt="...">
+                <img src="img/calendar.png" class="card-img-top" alt="calendrier">
                 <div class="card-body">
                     <h5 class="card-title">JE PREND RENDEZ-VOUS</h5>
                     <p class="card-text">sur le lieu de mon choix</p>

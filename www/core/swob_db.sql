@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: db
--- Generation Time: Jul 25, 2023 at 09:59 PM
--- Server version: 8.0.33
--- PHP Version: 8.1.17
+-- Hôte : db
+-- Généré le : ven. 25 août 2023 à 16:01
+-- Version du serveur : 8.0.34
+-- Version de PHP : 8.2.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `swob_db`
+-- Base de données : `swob_db`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `creneaux`
+-- Structure de la table `creneaux`
 --
 
 CREATE TABLE `creneaux` (
@@ -33,7 +33,7 @@ CREATE TABLE `creneaux` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `creneaux`
+-- Déchargement des données de la table `creneaux`
 --
 
 INSERT INTO `creneaux` (`id_creneau`, `creneau`) VALUES
@@ -58,7 +58,7 @@ INSERT INTO `creneaux` (`id_creneau`, `creneau`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `marques`
+-- Structure de la table `marques`
 --
 
 CREATE TABLE `marques` (
@@ -67,21 +67,21 @@ CREATE TABLE `marques` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `marques`
+-- Déchargement des données de la table `marques`
 --
 
 INSERT INTO `marques` (`id_marque`, `nom_marque`) VALUES
-(1, 'Samsung'),
-(2, 'Tishiba'),
 (3, 'Archos'),
+(6, 'ASUS'),
 (4, 'DELL'),
 (5, 'HP'),
-(6, 'ASUS');
+(1, 'Samsung'),
+(2, 'Toshiba');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `materiels`
+-- Structure de la table `materiels`
 --
 
 CREATE TABLE `materiels` (
@@ -90,7 +90,7 @@ CREATE TABLE `materiels` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `materiels`
+-- Déchargement des données de la table `materiels`
 --
 
 INSERT INTO `materiels` (`id_mat`, `nom_mat`) VALUES
@@ -101,7 +101,7 @@ INSERT INTO `materiels` (`id_mat`, `nom_mat`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `modeles`
+-- Structure de la table `modeles`
 --
 
 CREATE TABLE `modeles` (
@@ -112,7 +112,7 @@ CREATE TABLE `modeles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `modeles`
+-- Déchargement des données de la table `modeles`
 --
 
 INSERT INTO `modeles` (`id_modele`, `nom_modele`, `id_marque`, `materiel`) VALUES
@@ -161,7 +161,7 @@ INSERT INTO `modeles` (`id_modele`, `nom_modele`, `id_marque`, `materiel`) VALUE
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rendez_vous`
+-- Structure de la table `rendez_vous`
 --
 
 CREATE TABLE `rendez_vous` (
@@ -179,7 +179,7 @@ CREATE TABLE `rendez_vous` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `types`
+-- Structure de la table `types`
 --
 
 CREATE TABLE `types` (
@@ -189,7 +189,7 @@ CREATE TABLE `types` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `types`
+-- Déchargement des données de la table `types`
 --
 
 INSERT INTO `types` (`id_type`, `nom_type`, `modele`) VALUES
@@ -221,7 +221,7 @@ INSERT INTO `types` (`id_type`, `nom_type`, `modele`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Structure de la table `users`
 --
 
 CREATE TABLE `users` (
@@ -235,29 +235,30 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Indexes for dumped tables
+-- Index pour les tables déchargées
 --
 
 --
--- Indexes for table `creneaux`
+-- Index pour la table `creneaux`
 --
 ALTER TABLE `creneaux`
   ADD PRIMARY KEY (`id_creneau`);
 
 --
--- Indexes for table `marques`
+-- Index pour la table `marques`
 --
 ALTER TABLE `marques`
-  ADD PRIMARY KEY (`id_marque`);
+  ADD PRIMARY KEY (`id_marque`),
+  ADD UNIQUE KEY `nom_marque` (`nom_marque`);
 
 --
--- Indexes for table `materiels`
+-- Index pour la table `materiels`
 --
 ALTER TABLE `materiels`
   ADD PRIMARY KEY (`id_mat`);
 
 --
--- Indexes for table `modeles`
+-- Index pour la table `modeles`
 --
 ALTER TABLE `modeles`
   ADD PRIMARY KEY (`id_modele`),
@@ -265,7 +266,7 @@ ALTER TABLE `modeles`
   ADD KEY `materiel` (`materiel`);
 
 --
--- Indexes for table `rendez_vous`
+-- Index pour la table `rendez_vous`
 --
 ALTER TABLE `rendez_vous`
   ADD PRIMARY KEY (`id_rv`),
@@ -276,14 +277,14 @@ ALTER TABLE `rendez_vous`
   ADD KEY `type` (`type`);
 
 --
--- Indexes for table `types`
+-- Index pour la table `types`
 --
 ALTER TABLE `types`
   ADD PRIMARY KEY (`id_type`),
   ADD KEY `modele` (`modele`);
 
 --
--- Indexes for table `users`
+-- Index pour la table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id_user`),
@@ -291,64 +292,64 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `tel` (`tel`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
--- AUTO_INCREMENT for table `creneaux`
+-- AUTO_INCREMENT pour la table `creneaux`
 --
 ALTER TABLE `creneaux`
   MODIFY `id_creneau` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT for table `marques`
+-- AUTO_INCREMENT pour la table `marques`
 --
 ALTER TABLE `marques`
   MODIFY `id_marque` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `materiels`
+-- AUTO_INCREMENT pour la table `materiels`
 --
 ALTER TABLE `materiels`
   MODIFY `id_mat` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `modeles`
+-- AUTO_INCREMENT pour la table `modeles`
 --
 ALTER TABLE `modeles`
   MODIFY `id_modele` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
--- AUTO_INCREMENT for table `rendez_vous`
+-- AUTO_INCREMENT pour la table `rendez_vous`
 --
 ALTER TABLE `rendez_vous`
   MODIFY `id_rv` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `types`
+-- AUTO_INCREMENT pour la table `types`
 --
 ALTER TABLE `types`
   MODIFY `id_type` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
   MODIFY `id_user` int NOT NULL AUTO_INCREMENT;
 
 --
--- Constraints for dumped tables
+-- Contraintes pour les tables déchargées
 --
 
 --
--- Constraints for table `modeles`
+-- Contraintes pour la table `modeles`
 --
 ALTER TABLE `modeles`
   ADD CONSTRAINT `modeles_ibfk_1` FOREIGN KEY (`id_marque`) REFERENCES `modeles` (`id_modele`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   ADD CONSTRAINT `modeles_ibfk_2` FOREIGN KEY (`materiel`) REFERENCES `materiels` (`id_mat`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
--- Constraints for table `rendez_vous`
+-- Contraintes pour la table `rendez_vous`
 --
 ALTER TABLE `rendez_vous`
   ADD CONSTRAINT `rendez_vous_ibfk_1` FOREIGN KEY (`client`) REFERENCES `users` (`id_user`) ON DELETE RESTRICT ON UPDATE RESTRICT,
@@ -358,7 +359,7 @@ ALTER TABLE `rendez_vous`
   ADD CONSTRAINT `rendez_vous_ibfk_5` FOREIGN KEY (`type`) REFERENCES `types` (`id_type`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
--- Constraints for table `types`
+-- Contraintes pour la table `types`
 --
 ALTER TABLE `types`
   ADD CONSTRAINT `types_ibfk_1` FOREIGN KEY (`modele`) REFERENCES `modeles` (`id_modele`) ON DELETE RESTRICT ON UPDATE RESTRICT;

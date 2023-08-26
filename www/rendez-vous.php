@@ -40,6 +40,22 @@ $marques = $request->fetchAll();
     <div class="sep"></div>
 
     <div id="phone_diagnostic">
+        <div class="progressbar">
+            <div style="width: 20%; background-color: #348f72; border-radius: 50px;"></div>
+            <div style="width: 20%;"></div>
+            <div style="width: 20%;"></div>
+            <div style="width: 20%;"></div>
+            <div style="width: 20%;"></div>
+        </div>
+        <div class="sep"></div>
+        <p class="etape">
+            <span class="etapes">Diagnostic</span>
+            <span class="etapes">Assurance</span>
+            <span class="etapes">Rendez-vous</span>
+            <span class="etapes">Coordonnées</span>
+            <span class="etapes">Confirmation</span>
+        </p>
+        <div class="sep"></div>
         <div id="tel" class="diagnostic_tel">
             <div class="left">
                 <img src="img/latel.png" alt="">
@@ -96,9 +112,10 @@ $marques = $request->fetchAll();
                     <button class="liste" value="Nappe QI magsafe (seulement iPhone)">
                         <li># 16 Nappe QI magsafe (seulement iPhone)</li>
                     </button>
-                    <button class="liste" value="Autre">
+                    <button class="liste" value="Autre" id="autre-composant">
                         <li># 17 Autre</li>
                     </button>
+                    <input class="hide" type="text" id="composant-autre">
                 </ul>
                 <!-- </form> -->
             </div>
@@ -135,18 +152,44 @@ $marques = $request->fetchAll();
             </ul>
 
             <div class="resume">
-                <button id="suite_diag" style="width: 100%; background-color: none; border: none;">étape
-                    suivante</button>
+                <button id="suite_diag" style="width: 100%; background-color: none; border: none;">étape suivante</button>
             </div>
         </div>
     </div>
+    
 
     <div id="assurance" class="hide">
+        <div class="sep"></div>
+        <div class="sep"></div>
+        <div class="sep"></div>
+        <div class="sep"></div>
         <?php include_once "asurance.php" ?>
     </div>
-
+    
     <div id="rdv" class="hide">
+        <div class="sep"></div>
+        <div class="sep"></div>
+        <div class="sep"></div>
+        <div class="sep"></div>
         <?php include_once "creneau.php" ?>
+    </div>
+    
+    
+    <div id="crdn" class="hide">
+        <div class="sep"></div>
+        <div class="sep"></div>
+        <div class="sep"></div>
+        <div class="sep"></div>
+        <?php include_once "coordonnes.php" ?>
+    </div>
+    
+    
+    <div id="confirm" class="hide">
+        <div class="sep"></div>
+        <div class="sep"></div>
+        <div class="sep"></div>
+        <div class="sep"></div>
+        <?php include_once "confirmation.php" ?>
     </div>
 
     <?php include_once "footer.php" ?>
